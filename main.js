@@ -33,6 +33,7 @@ function adicionarTarefa() {
     salvarMudancas();
 }
 
+// Gerencia a mudança do status do checkbox.
 function toggleCheck(check) {
     let blocoTarefa = check.parentElement;
 
@@ -45,16 +46,18 @@ function toggleCheck(check) {
     salvarMudancas();
 }
 
+// Gera e atualiza o array de tarefas que fica guardado no Local Storage.
 function salvarMudancas() {
     let tarefas = [];
 
     let blocos = document.querySelectorAll(".tarefa");
     if(!blocos) return;
 
+    // Loopando por todos os blocos de tarefas e colhendo as informações
     blocos.forEach(bloco => {
         tarefas.push({
             nome: bloco.querySelector(".tarefa-nome").innerText,
-            concluido: bloco.querySelector(".tarefa-check").checked ? true : false
+            concluido: bloco.querySelector(".tarefa-check").checked
         });
     });
 
@@ -65,6 +68,7 @@ function salvarMudancas() {
 // Chamado assim que todo conteúdo é carregado.
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Carregando e criando as tarefas (se houver alguma) ao iniciar a página.
     let tarefas = JSON.parse(localStorage.getItem("tarefas")) || null;
     if(tarefas && tarefas.length > 0){
         tarefas.forEach(tarefa => {
@@ -84,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Atribui o listener ao botão de nova tarefa.
     document.getElementById("botao-novaTarefa").addEventListener("click", adicionarTarefa);
 
-    // Binda o ENTER ao botão de nova tarefa.
+    // Bindando o ENTER ao botão de nova tarefa.
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
           event.preventDefault();

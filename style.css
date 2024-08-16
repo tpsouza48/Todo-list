@@ -6,8 +6,6 @@ body {
     margin: 0;
 }
 
-
-
 /* Cabeçalho da página contendo título e logo. */
 header {
     display: flex;
@@ -38,7 +36,7 @@ header #logo {
 
 
 
-
+/* Estilo da área de adicionar nova tarefa */
 #container-novaTarefa {
     display: flex;
     flex-direction: column;
@@ -115,7 +113,7 @@ header #logo {
     transform: translateY(2px);
     transition: transform .2s;
 }
-/* Fim do container de nova tarefa */
+/* FIM DO CONTAINER DE NOVA TAREFA */
 
 
 
@@ -135,11 +133,6 @@ header #logo {
     -moz-box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.48);
     box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.48);
 }
-
-/* #tarefas-titulo {
-    margin: 40px auto auto auto;
-    color: black;
-} */
 
 .tarefa {
     display: flex;
@@ -221,7 +214,7 @@ header #logo {
     font-size: 20px;
     font-weight: bold;
 }
-
+/* FIM DO ESTILO DO CONTAINER DE TAREFAS */
 
 /* AJUSTES PARA RESPONSIVIDADE EM TELAS MENORES */
 @media (max-width: 1300px) {
