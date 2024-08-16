@@ -6,6 +6,10 @@ body {
     margin: 0;
 }
 
+body #container-tarefas, #container-novaTarefa {
+    animation: fadeIn forwards .5s;
+}
+
 /* Cabeçalho da página contendo título e logo. */
 header {
     display: flex;
@@ -216,7 +220,17 @@ header #logo {
 }
 /* FIM DO ESTILO DO CONTAINER DE TAREFAS */
 
-/* AJUSTES PARA RESPONSIVIDADE EM TELAS MENORES */
+/* ANIMAÇÕES E RESPONSIVIDADE */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 @media (max-width: 1300px) {
     #container-novaTarefa {
         width: 75%;
@@ -233,6 +247,11 @@ header #logo {
 
     .tarefa-nome {
         max-width: 70%;
+        font-size: 15px;
+        overflow: hidden;
+        text-wrap: wrap;
+        max-height: none;
+        padding: 20px 0;
     }
 
     .tarefa-check {
