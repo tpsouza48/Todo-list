@@ -1,7 +1,9 @@
 body {
-    /* background-color: #84a4c2; */
+    display: flex;
+    flex-direction: column;
     background-color: #f4dc72;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
 }
 
 
@@ -14,6 +16,8 @@ header {
     background-color: #353d30;
     padding: 1rem 0.5rem;
     gap: 10px;
+
+    margin-bottom: 20px;
 
     -webkit-box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.48);
     -moz-box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.48);
@@ -34,164 +38,215 @@ header #logo {
 
 
 
-/* Estilização dos containers e classes das tarefas */
-.container-tarefas {
-    display: flex;
-    margin: 20px 5rem;
-    padding: 20px 30px;
-    flex: 1;
-    flex-direction: column;
-    gap: 10px;
 
-    border-radius: 5px;
-    background-color: #84a4c2;
-    /* background-color: #ffffff9d; */
+#container-novaTarefa {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+
+    margin: 40px auto 40px auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+
+    -webkit-box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.48);
+    -moz-box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.48);
+    box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.48);
 }
 
-.texto-semTarefas {
+#titulo-novaTarefa {
+    width: 100%;
+    height: fit-content;
+
     font-size: 20px;
     font-weight: bold;
-    padding: 20px;
-    margin: auto;
+    text-align: center;
+    margin: 0;
+
+    color: #4d4d4d;
 }
 
-.tarefa {
+#holder-novaTarefa {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-
-    padding: 10px 0;
-    background-color: white;
-    align-items: center;
-    /* border-radius: 5px; */
 }
 
-.tarefa .tarefa-titulo {
-    margin-left: 1rem;
-}
+#input-novaTarefa {
+    width: 80%;
+    height: 20px;
+    margin: 15px auto;
 
-.tarefa-containerBotoes {
-    margin: 0 1rem 0 auto;
-}
-
-.tarefa-containerBotoes button {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
-/* FIM DA ESTILIZAÇÃO DAS TAREFAS */
-
-
-
-/* Botão flutuante de adicionar tarefa */
-#botao-novaTarefa {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-
-    padding: 20px;
+    outline: none;
     border: none;
-    border-radius: 30px;
-    background-color: rgb(38, 177, 38);
+    border-bottom: 2px solid #4d4d4d;
+    transition: border-bottom .5s;
+}
+
+#input-novaTarefa:focus-visible {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #ecba13;
+    /* border-bottom: 2px solid #2a79b6; */
+    transition: border-bottom .3s;
+}
+
+#botao-novaTarefa {
+    width: 30%;
+    height: 40px;
+    margin: 0 auto;
+
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(42, 157, 42);
     color: white;
+    cursor: pointer;
+
     font-size: 15px;
     font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s;
+    transition: filter .2s, transform .2s;
 }
 
 #botao-novaTarefa:hover {
-    transition: transform 0.3s;
     filter: brightness(0.9);
     transform: scale(1.1);
+    transition: filter .2s, transform .2s;
 }
 
 #botao-novaTarefa:active {
-    transform: translateY(-5px);
+    transform: translateY(2px);
+    transition: transform .2s;
 }
-/* FIM DO BOTÃO FLUTUANTE */
+/* Fim do container de nova tarefa */
 
 
 
-/* "Popup" de adicionar tarefa */
-#popup-novaTarefa {
-    display: none;
-    /* display: flex; */
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    background-color: rgba(0, 0, 0, 0.400);
-    width: 100%;
-    height: 100vh;
-
-    animation: fadeIn .2s forwards;
-}
-
-#popup-container {
-    width: 50%;
-    /* height: 50%; */
+/* Container de tarefas */
+#container-tarefas {
     display: flex;
     flex-direction: column;
+    width: 75%;
 
-    margin: auto;
+    margin: 20px auto auto auto;
     padding: 20px;
-    background-color: #353d30;
-    border-radius: 20px;
+
+    border-radius: 5px;
+    background-color: #ffffff;
+
+    -webkit-box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.48);
+    -moz-box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.48);
+    box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.48);
 }
 
-#popup-container h3 {
+/* #tarefas-titulo {
+    margin: 40px auto auto auto;
+    color: black;
+} */
+
+.tarefa {
+    display: flex;
+    position: relative;
+
+    min-height: 75px;
+    background-color: #96b4cc;
+
+    padding: 0 20px;
+    border-radius: 10px;
+
+    transition: opacity .3s;
+}
+
+.tarefa-nome {
+    margin: auto 0 auto 0;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+
+    max-width: 90%;
+    max-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.tarefa-check {
+    width: 20px;
+    height: 20px;
+    margin: auto 3rem auto auto;
+
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: green;
+}
+
+.tarefa-excluir {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+
+    transition: transform .2s, color .2s;
+}
+
+.tarefa-excluir:hover {
+    transform: scale(1.2);
+    transition: transform .2s, color .4s;
+    color: red;
+}
+
+.tarefa-concluida {
+    transition: opacity .3s;
+    opacity: 0.5;
+}
+
+.tarefa-concluida:hover {
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.tarefa-concluida .tarefa-nome {
+    text-decoration: line-through;
+}
+
+.tarefa:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+#texto-semTarefas {
+    margin: 40px auto;
     font-size: 20px;
     font-weight: bold;
-    color: white;
-    text-align: center;
 }
 
-#popup-holder-input {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 5px;
-}
 
-#popup-holder-input label {
-    font-size: 16px;
-    color: white;
-}
-
-#popup-holder-input input {
-    height: 2rem;
-    font-size: 16px;
-    padding: 5px;
-}
-
-#popup-botaoAdicionar {
-    width: 50%;
-    height: 50px;
-    margin: 10px auto;
-}
-/* FIM DO POPUP */
-
-
-/* FRAMES DAS ANIMAÇÕES */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
+/* AJUSTES PARA RESPONSIVIDADE EM TELAS MENORES */
+@media (max-width: 1300px) {
+    #container-novaTarefa {
+        width: 75%;
     }
 
-    100% {
-        opacity: 1;
+    #botao-novaTarefa {
+        width: 50%;
     }
-}
 
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
+    #texto-semTarefas {
+        font-size: 15px;
+        text-align: center;
     }
-    
-    100% {
-        opacity: 0;
-        display: none;
+
+    .tarefa-nome {
+        max-width: 70%;
+    }
+
+    .tarefa-check {
+        margin: auto 2.5rem auto auto;
+    }
+
+    .tarefa-excluir {
+        font-size: 20px;
     }
 }
-/* FIM DOS FRAMES DAS ANIMAÇÕES */

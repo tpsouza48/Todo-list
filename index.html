@@ -14,35 +14,21 @@
             <img id="logo" src="./assets/logo.png">
             <h1>To-do List</h1>
         </header>
-
-        <div class="container-tarefas">
-            <div class="tarefa">
-                <p class="tarefa-titulo">
-                    Lorem ipsum dolor sit amet
-                </p>
-                <div class="tarefa-containerBotoes">
-                    <button class="tarefa-botaoExcluir">❌</button>
-                    <button class="tarefa-botaoConcluir">✔</button>
-                </div>
-            </div>
+        
+        <div id="container-tarefas">
+            <p id="texto-semTarefas" style="display: none;">
+                Nenhuma tarefa a ser exibida.
+            </p>
         </div>
 
-        <button id="botao-novaTarefa">
-            + Adicionar tarefa
-        </button>
-
-        <div id="popup-novaTarefa">
-            <div id="popup-container">
-                <h3>Adicionar nova tarefa</h3>
-                <div id="popup-holder-input">
-                    <label>
-                        Nome da tarefa
-                    </label>
-                    <input id="input-novaTarefa" type="text">
-                </div>
-
-                <button id="popup-botaoAdicionar">Adicionar</button>
+        <div id="container-novaTarefa">
+            <p id="titulo-novaTarefa">Adicionar nova tarefa</p>
+            
+            <div id="holder-novaTarefa">
+                <input id="input-novaTarefa" type="text" placeholder="Nome da tarefa">
             </div>
+
+            <button id="botao-novaTarefa">+ Adicionar</button>
         </div>
     </body>
 </html>
